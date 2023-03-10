@@ -18,12 +18,17 @@ app.use((req, res, next) => {
 
 global.datos = {
     title: "Sensor Apagado",
-    description: "Sin datos"
+    description: "Sin datos",
 };
 
-app.set("port", process.env.PORT || 80);
+
+global.led = {
+    led: false
+}
+
+app.set("port", process.env.PORT || 8080);
 
 app.use(require("./routes/routesIndex"));
 
 
-app.listen(app.get('port'), console.log('Escuchando el puerto 5000'))
+app.listen(app.get('port'), console.log('Escuchando el puerto ', app.get('port')))
